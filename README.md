@@ -41,7 +41,7 @@ extension AppRouter: RouteHandlerRegistering where View == AnyView {
 }
 ```
 
-## Navigating and the `AppRouter`'s' `Navigator` type
+## Navigating and the `AppRouter`'s `Navigator` type
 After registering `RouteHandler`s navigation actions are started by passing instances of `Route`s to the `Router`. `Router` itself is only responsible for matching `Route`s with their handler. `AppRouter` will continue to call the handlers' `view` method and pass the returned value to a `Navigator`. This can be seen as the UI component that will eventually execute the navigation action.
 
 An example `Navigator` could be a `UITabBarController`. The particular implementation of the `Navigator` protocol is the place where the navigation logic is provided:
