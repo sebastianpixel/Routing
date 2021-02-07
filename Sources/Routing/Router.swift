@@ -11,13 +11,13 @@
 /// @Inject private var router: Router<UIViewController>
 /// ```
 open class Router<View> {
-    var root: View {
+    open var root: View {
         fatalError("\(#function) needs to be overridden.")
     }
-    func register<Handler: RouteHandler>(_ handler: Handler) where Handler.View == View {
+    open func register<Handler: RouteHandler>(_ handler: Handler) where Handler.View == View {
         fatalError("\(#function) needs to be overridden.")
     }
-    func callAsFunction<ConcreteRoute: Route>(_ route: ConcreteRoute) {
+    open func callAsFunction<ConcreteRoute: Route>(_ route: ConcreteRoute) {
         fatalError("\(#function) needs to be overridden.")
     }
 }

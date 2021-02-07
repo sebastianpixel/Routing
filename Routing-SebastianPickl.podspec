@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'Routing-SebastianPickl'
   s.module_name  = 'Routing'
-  s.version      = '0.2.0'
+  s.version      = '0.2.1'
   s.summary      = 'Strongly typed routing concept without static navigation flows.'
   s.description  = <<-DESC
 Router is based on the idea of open navigation flows where any location inside an app can be reached from anywhere by passing instances of `Route` types to corresponding, preregistered `RouteHandler`s. While `Route`s provide necessary information about the desination, `RouteHandler`s will provide instances of a generic `View` type which can be specified as `AnyView`, `UIViewController`, `NSViewController` or any other type.
