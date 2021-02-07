@@ -2,9 +2,9 @@ Pod::Spec.new do |s|
   s.name         = 'Routing-SebastianPickl'
   s.module_name  = 'Routing'
   s.version      = '0.1.0'
-  s.summary      = 'Minimal dynamic Router implementation'
+  s.summary      = 'Strongly typed routing concept without static navigation flows.'
   s.description  = <<-DESC
-  Microframework for dynamic routing inside apps based on `Route` and `RouteHandler` types.
+Router is based on the idea of open navigation flows where any location inside an app can be reached from anywhere by passing instances of `Route` types to corresponding, preregistered `RouteHandler`s. While `Route`s provide necessary information about the desination, `RouteHandler`s will provide instances of a generic `View` type which can be specified as `AnyView`, `UIViewController`, `NSViewController` or any other type.
 DESC
   s.homepage     = 'https://github.com/sebastianpixel/Routing'
   s.authors            = 'Sebastian Pickl'
