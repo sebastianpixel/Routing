@@ -1,5 +1,4 @@
-/// Typealias for the Image type in either AppKit or UIKit.
-#if os(macOS)
+#if canImport(AppKit)
 import AppKit
 public typealias Image = NSImage
 #else
