@@ -4,10 +4,20 @@
 /// The associated type `View` determines the type of view that should be
 /// used for routing - a `UIKit.UIViewController`, `AppKit.NSViewController`
 /// or `SwiftUI.AnyView`.
-public protocol Router {
-    associatedtype View
-
-    var root: View { get }
-    func register<Handler: RouteHandler>(_ handler: Handler) where Handler.View == View
-    func callAsFunction<ConcreteRoute: Route>(_ route: ConcreteRoute)
+///
+///`Router` is a class so it can be specified as concrete type when the
+/// concrete implementation should be rosolved via dependency injection:
+/// ```
+/// @Inject private var router: Router<UIViewController>
+/// ```
+open class Router<View> {
+    var root: View {
+        fatalError("\(#function) needs to be overridden.")
+    }
+    func register<Handler: RouteHandler>(_ handler: Handler) where Handler.View == View {
+        fatalError("\(#function) needs to be overridden.")
+    }
+    func callAsFunction<ConcreteRoute: Route>(_ route: ConcreteRoute) {
+        fatalError("\(#function) needs to be overridden.")
+    }
 }

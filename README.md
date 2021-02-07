@@ -31,7 +31,7 @@ public struct HomeRouteHandler: RouteHandler {
 * `.modal` -> The view should be presented modally.
 
 ## `AppRouter` and the registration of `RouteHandler`s
-The framework provides an implementation of the `Router` protocol, `AppRouter`. While it's possible to register handlers via the `Router`'s `register` method it's the easiest to make `AppRouter` conform to `RouteHandlerRegistering`. `AppRouter` will then call `registerRoutes` once its `root` property is first accessed.
+The framework provides an implementation of the `Router` abstract class, `AppRouter`. While it's possible to register handlers via the `Router`'s `register` method it's the easiest to make `AppRouter` conform to `RouteHandlerRegistering`. `AppRouter` will then call `registerRoutes` once its `root` property is first accessed.
 
 ```Swift
 extension AppRouter: RouteHandlerRegistering where View == AnyView {

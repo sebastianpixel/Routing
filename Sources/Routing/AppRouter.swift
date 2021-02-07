@@ -4,9 +4,9 @@
 /// with the `Route`'s `Transition` to a `Navigator` type which represents the actual
 /// UI component that executes the navigation. `Route`'s need to be registed via their
 /// respective `RouteHandler`.
-public final class AppRouter<View>: Router {
+public final class AppRouter<View>: Router<View> {
 
-    public var root: View {
+    public override var root: View {
         _ = setUpOnce
         return navigator.root
     }
@@ -41,7 +41,7 @@ public final class AppRouter<View>: Router {
         self.navigator = AnyNavigator(navigator)
     }
 
-    public func register<Handler: RouteHandler>(_ handler: Handler) where Handler.View == View {
+    public override func register<Handler: RouteHandler>(_ handler: Handler) where Handler.View == View {
         let identifier = ObjectIdentifier(Handler.ConcreteRoute.self)
         routeHandlers[identifier] = AnyRouteHandler(handler)
 
@@ -50,7 +50,7 @@ public final class AppRouter<View>: Router {
         }
     }
 
-    public func callAsFunction<ConcreteRoute: Route>(_ route: ConcreteRoute) {
+    public override func callAsFunction<ConcreteRoute: Route>(_ route: ConcreteRoute) {
         guard let handler = handler(for: route) else {
             return
         }
